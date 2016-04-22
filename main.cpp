@@ -54,6 +54,8 @@ void gen_schedule(course *gschedule) {
 	course tc = {"Test", 0, 0, 0, 0, 0, 0};
 	string temp;
 	for(int i = 0; i < 7; i++) {
+		temp = coursenames[random(0, 10)] + ' ' + coursenums[random(0, 4)]; //Nasty hack to randomize 3 times
+		temp = coursenames[random(0, 10)] + ' ' + coursenums[random(0, 4)];
 		temp = coursenames[random(0, 10)] + ' ' + coursenums[random(0, 4)];
 		tc.name = temp;
 		gschedule[i] = tc;
