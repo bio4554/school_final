@@ -6,6 +6,7 @@ using namespace std;
 
 const string coursenames[10] = {"Biology", "English", "History", "Sports", "Math", "Chemistry", "Computer Science", "Spanish", "Music", "Art"};
 const string coursenums[4] = {"I", "II", "III", "IV"};
+const string studentnames[5] = {"Bob", "Joe", "John", "Dhruvan", "Elias"};
 
 struct school {
 	string name;
@@ -53,16 +54,19 @@ void gen_schedule(course *gschedule) {
 	course tc = {"Test", 0, 0, 0, 0, 0, 0};
 	string temp;
 	for(int i = 0; i < 7; i++) {
-		temp = coursenames[random(0, 9)] + ' ' + coursenums[random(0, 4)];
+		temp = coursenames[random(0, 10)] + ' ' + coursenums[random(0, 4)];
 		tc.name = temp;
 		gschedule[i] = tc;
 	}
 }
 
 void gen_school(school &gschool) {
-
+	
 }
 
 void gen_student(student &gstudent) {
-
+	gstudent.name = studentnames[random(0, 5)] + ' ' + studentnames[random(0, 5)];
+	gstudent.pop = random(0, 100);
+	gstudent.intel = random(0, 100);
+	gen_schedule(gstudent.schedule);
 }
