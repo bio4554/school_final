@@ -24,6 +24,7 @@ struct course {
 	int hwgrades[25];
 	int qgrades[10];
 	int tgrades[4];
+	void calc_grade();
 };
 
 struct student {
@@ -96,8 +97,25 @@ int main() {
 	}
 		day++;
 	}
-
 	return 0;
+}
+
+void course::calc_grade() {
+	float qgrade, tgrade, hgrade;
+	hgrade = 0;
+	qgrade = 0;
+	tgrade = 0;
+	for(int i = 0; i < 25; i++)
+		hgrade = hgrade + hwgrades[i];
+	for(int i = 0; i < 10; i++)
+		qgrade = qgrade + qgrades[i];
+	for(int i = 0; i < 4; i++)
+		tgrade = tgrade + tgrades[i];
+	hgrade = (hgrade/25);
+	qgrade = (qgrade/10);
+	tgrade = (tgrade/4);
+	grade = (hgrade + tgrade + qgrade)/3;
+
 }
 
 int get_input() {
